@@ -17,10 +17,10 @@ _This webpage simulates a program that a barbershop would use to keep track of i
 
 ## Database Setup
 * _In PSQL_
-* _CREATE DATABASE hair_salon_
-* _\c hair_salon_
-* _CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, details varchar)_
-* _CREATE TABLE clients (id serial PRIMARY KEY, stylistId int, name varchar, details varchar)_
+* _CREATE DATABASE hair_salon;_
+* _\c hair_salon;_
+* _CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, details varchar);_
+* _CREATE TABLE clients (id serial PRIMARY KEY, stylistId int, name varchar, details varchar);_
 
 ## Technologies Used
 
