@@ -1,0 +1,46 @@
+<h1 class="jumbotron">$stylist.getName()</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Stylist Details:</h3>
+    <p>$stylist.getDetails()</p>
+    <h3>List of Clients:</h3>
+    #if($stylist.getClients().size() > 0)
+      <ul>
+        #foreach($client in $stylist.getClients())
+          <li><a href="/stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></li>
+        #end
+      </ul>
+    #else
+    <p>There are no clients listed yet!</p>
+    #end
+    <h3>Delete Stylist</h3>
+    <form action="/stylist/$stylist.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger">Delete Stylist</button>
+    </form>
+
+  <div class="backButton">
+    <a href="/">Back to homepage</a>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <h3>Add new client to this stylist:</h3>
+    <div class="row">
+      <form action="/clients" method="post" class="form-horizontal">
+        <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+        <div class="form-group">
+          <label for="name" class="control-label col-md-2">Client Name:</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" id="name" name="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="details" class="control-label col-md-2">Details:</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" id="details" name="details">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Add Client</button>
+      </form>
+    </div>
+  </div>
+</div>

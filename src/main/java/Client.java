@@ -12,6 +12,7 @@ public class Client {
     this.details = details;
     this.name = name;
     this.stylistId = stylistId;
+    this.save();
   }
 
   public int getStylistId() {
@@ -24,6 +25,10 @@ public class Client {
 
   public int getId() {
     return id;
+  }
+
+  public String getName() {
+    return name;
   }
 
   public static Client find(int id) {

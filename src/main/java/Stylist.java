@@ -28,6 +28,10 @@ public class Stylist {
     return id;
   }
 
+  public String getDetails() {
+    return details;
+  }
+
   public static Stylist find(int id) {
     try(Connection con = DB.sql2o.open();) {
       String sql = "SELECT * FROM stylists WHERE id=:id;";
@@ -55,6 +59,15 @@ public class Stylist {
     .addParameter("details", this.details)
     .executeUpdate()
     .getKey();
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open();) {
+      String sql = "DELETE FROM stylists WHERE id = :id;";
+      con.createQuery(sql)
+      .addParameter("id", this.id)
+      .executeUpdate();
     }
   }
 
