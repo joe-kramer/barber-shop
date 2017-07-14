@@ -1,0 +1,30 @@
+<h1 class="jumbotron">BarberShop Organizer</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Choose your Stylist:</h3>
+    #if($stylists.size() > 0)
+      <p>Click on a Stylists to view their details and list of clients</p>
+      <ul>
+        #foreach($stylist in $stylists)
+          <li><a href="/stylist/$stylist.getId()">$stylist.getName()</a></li>
+        #end
+      </ul>
+    #else
+      <p>There are no Stylists yet!</p>
+    #end
+  </div>
+  <div class="col-md-6">
+    <h3>Add new Stylist:</h3>
+    <form action="/stylists" method="post">
+      <div class="form-inline">
+        <label for="name">Stylist Name:</label>
+        <input class="form-control" type="text" id="name" name="name">
+      </div>
+      <div class="form-inline">
+        <label for="details">Stylist Details:</label>
+        <input class="form-control" type="text" id="details" name="details">
+      </div>
+      <button type="submit" class="btn btn-success">Add Stylist</button>
+    </form>
+  </div>
+</div>
