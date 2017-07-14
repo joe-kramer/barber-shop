@@ -1,1 +1,17 @@
+<!--task.vtl-->
+<h1 class="jumbotron">$client.getName()</h1>
+<h3>Details:</h3>
+<p>$client.getDetails()</p>
 
+<h3>Delete Client?</h3>
+<form action="/stylist/$stylist.getId()/client/$client.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete Stylist</button>
+</form>
+<h3>Update details</h3>
+<form action="/stylist/$stylist.getId()/client/$client.getId()/update" method="post">
+  <label for="details">Details</label>
+  <input id="details" name="details" type="text">
+  <button type="submit" class="btn btn-info">Update task</button>
+</form>
+
+<!--task.vtl-->
