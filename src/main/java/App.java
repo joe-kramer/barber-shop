@@ -52,5 +52,16 @@ public class App {
       response.redirect("/");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/stylist/:id/update", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
+      String details = request.queryParams("details");
+      stylist.update(details);
+      String url = String.format("/stylist/%d", Integer.parseInt(request.params("id")));
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }
