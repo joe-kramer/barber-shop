@@ -52,8 +52,8 @@ public class StylistTest {
 
   @Test
   public void find_returnsStylistsWithSameId_secondStylist() {
-    Stylist stylistTest1 = new Stylist("Trisha", "likes hair", 1);
-    Stylist stylistTest2 = new Stylist("Taylor", "likes hair", 1);
+    Stylist stylistTest1 = new Stylist("Trisha", "likes hair");
+    Stylist stylistTest2 = new Stylist("Taylor", "likes hair");
     assertEquals(Stylist.find(stylistTest2.getId()), stylistTest2);
   }
 }
