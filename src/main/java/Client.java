@@ -8,7 +8,7 @@ public class Client {
   private int id;
   private int stylistId;
 
-  public Task(String name, String details, int stylistId) {
+  public Client(String name, String details, int stylistId) {
     this.details = details;
     this.name = name;
     this.stylistId = stylistId;
