@@ -44,16 +44,16 @@ public class StylistTest {
   @Test
   public void getClients_getsAllAssociatedClients_true() {
     Styliest stylistTest = new Stylist("Trisha", "likes hair");
-    Client client1 = new Client("Joe", "likes hair");
-    Client client2 = new Client("Taylor", "likes beards");
+    Client client1 = new Client("Joe", "likes hair", 1);
+    Client client2 = new Client("Taylor", "likes beards", 1);
     Client[] clients = new Client[] { client1, client2 };
     assertTrue(stylistTest.getClients().containsAll(Arrays.asList(tasks)));
 
 
   @Test
   public void find_returnsStylistsWithSameId_secondStylist() {
-    Stylist stylistTest1 = new Stylist("Trisha", "likes hair");
-    Stylist stylistTest2 = new Stylist("Taylor", "likes hair");
+    Stylist stylistTest1 = new Stylist("Trisha", "likes hair", 1);
+    Stylist stylistTest2 = new Stylist("Taylor", "likes hair", 1);
     assertEquals(Stylist.find(stylistTest2.getId()), stylistTest2);
   }
 }
