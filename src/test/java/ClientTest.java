@@ -7,14 +7,13 @@ public class ClientTest {
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
-  // @Test
-  // public void delete_deletesTask_true() {
-  //   Task myTask = new Task("Mow the lawn", 1);
-  //   myTask.save();
-  //   int myTaskId = myTask.getId();
-  //   myTask.delete();
-  //   assertEquals(null, Task.find(myTaskId));
-  // }
+  @Test
+  public void delete_deletesClient_true() {
+    Client myClient = new Client("Joe", "combover", 1);
+    int myClientId = myClient.getId();
+    myClient.delete();
+    assertEquals(null, Client.find(myClientId));
+  }
 
   @Test
   public void client_instantiatesCorrectly_true() {
@@ -32,7 +31,7 @@ public class ClientTest {
   public void find_returnsClientWithSameId_secondClient() {
     Client client1 = new Client("Joe", "likes hair", 1);
     Client client2 = new Client("Taylor", "likes beards", 1);
-    assertEquals(Client.find(client2.getId()), client2);
+    assertEquals(Client.find(client2.getId()).getName(), "Taylor");
   }
 
   @Test

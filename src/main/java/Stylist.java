@@ -87,7 +87,7 @@ public class Stylist {
       return false;
     } else {
       Stylist newStylist = (Stylist) otherStylist;
-      return this.getName().equals(newStylist.getName()) && this.getId() == newStylist.getId();
+      return this.getName().equals(newStylist.getName());
     }
   }
 }

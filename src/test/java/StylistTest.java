@@ -10,7 +10,7 @@ public class StylistTest {
 
   @Test
   public void syliest_instantiatesCorrectly_true() {
-    Stylist stylistTest = new Stylist("Trisha");
+    Stylist stylistTest = new Stylist("Trisha", "likes hair");
     assertEquals(true, stylistTest instanceof Stylist);
   }
 
@@ -38,22 +38,22 @@ public class StylistTest {
   @Test
   public void save_savesIntoDatabase_true() {
     Stylist stylistTest1 = new Stylist("Trisha", "likes hair");
-    assertTrue(Stylist.all().get(0).equals(stylistTest1));
+    assertTrue(Stylist.getAll().get(0).equals(stylistTest1));
   }
 
   @Test
   public void getClients_getsAllAssociatedClients_true() {
-    Styliest stylistTest = new Stylist("Trisha", "likes hair");
-    Client client1 = new Client("Joe", "likes hair", 1);
-    Client client2 = new Client("Taylor", "likes beards", 1);
-    Client[] clients = new Client[] { client1, client2 };
-    assertTrue(stylistTest.getClients().containsAll(Arrays.asList(tasks)));
-
+    Stylist stylistTest = new Stylist("Trisha", "likes hair");
+    Client client1 = new Client("Joe", "likes hair", stylistTest.getId());
+    Client client2 = new Client("Taylor", "likes beards", stylistTest.getId());
+    assertEquals(stylistTest.getClients().get(0).getName(), "Joe");
+    assertEquals(stylistTest.getClients().get(1).getName(), "Taylor");
+  }
 
   @Test
   public void find_returnsStylistsWithSameId_secondStylist() {
     Stylist stylistTest1 = new Stylist("Trisha", "likes hair");
     Stylist stylistTest2 = new Stylist("Taylor", "likes hair");
-    assertEquals(Stylist.find(stylistTest2.getId()), stylistTest2);
+    assertTrue(Stylist.find(stylistTest2.getId()).equals(stylistTest2));
   }
 }
